@@ -1,29 +1,20 @@
 import ProjectDescription
-import ProjectDescriptionHelpers
-import MyPlugin
 
-/*
-                +-------------+
-                |             |
-                |     App     | Contains TuistApp App target and TuistApp unit-test target
-                |             |
-         +------+-------------+-------+
-         |         depends on         |
-         |                            |
- +----v-----+                   +-----v-----+
- |          |                   |           |
- |   Kit    |                   |     UI    |   Two independent frameworks to share code and start modularising your app
- |          |                   |           |
- +----------+                   +-----------+
-
- */
-
-// MARK: - Project
-
-// Local plugin loaded
-let localHelper = LocalHelper(name: "MyPlugin")
-
-// Creates our project using a helper function defined in ProjectDescriptionHelpers
-let project = Project.app(name: "TuistApp",
-                          platform: .iOS,
-                          additionalTargets: [])
+let project = Project(
+    name: "MyApp",
+    targets: [
+        Target(
+            name: "MyApp",
+            platform: .iOS,
+            product: .app,
+            bundleId: "com.sarunw.myapp",
+            infoPlist: "MyApp.plist", // <1>
+            sources: [
+                "Sources/**"
+            ],
+            resources: [
+                "Resources/**"
+            ]
+        )
+    ]
+)
