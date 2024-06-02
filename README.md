@@ -1,2 +1,2 @@
-# tuist app
-new app 
+g# tuist app
+new app update
