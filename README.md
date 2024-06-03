@@ -1,2 +1,2 @@
 g# tuist app
-new app update
+new app update.
